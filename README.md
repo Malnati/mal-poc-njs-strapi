@@ -1,0 +1,1 @@
+# mal-poc-njs-strapi
