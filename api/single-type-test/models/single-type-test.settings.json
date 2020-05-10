@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "single_type_tests",
+  "info": {
+    "name": "Staffs"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "SingleName": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "staffs",
+  "info": {
+    "name": "staffs",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {}
+}
