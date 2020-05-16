@@ -1,0 +1,14 @@
+version: '2'
+services:
+  vobys-postgresql:
+    image: postgres:latest
+    container_name: vobys-postgresql
+    restart: unless-stopped
+    environment:
+      - POSTGRES_DB=vobys
+      - POSTGRES_USER=vobys
+    volumes:
+      - ~/volumes/vobys/postgresql/:/var/lib/postgresql/data/
+    command: postgres -c listen_addresses='*'
+    ports:
+      - 5432:5432

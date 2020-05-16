@@ -1,0 +1,21 @@
+version: '2'
+services:
+  vobys-postgresql:
+    extends:
+      file: postgresql.yml
+      service: vobys-postgresql
+  vobys-registry:
+    extends:
+      file: jhipster-registry.yml
+      service: vobys-registry
+    environment:
+      - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
+      - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/
+  vobys-gateway:
+    extends:
+      file: gateway.yml
+      service: vobys-gateway
+  vobys-sonar:
+    extends:
+      file: sonar.yml
+      service: vobys-sonar
