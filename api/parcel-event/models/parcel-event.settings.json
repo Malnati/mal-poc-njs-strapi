@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parcel_events",
+  "info": {
+    "name": "parcel-event"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "index": {
+      "type": "integer"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "string"
+    },
+    "goal": {
+      "model": "goal"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/parcel-events",
+      "handler": "parcel-event.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/parcel-events/count",
+      "handler": "parcel-event.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/parcel-events/:id",
+      "handler": "parcel-event.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/parcel-events",
+      "handler": "parcel-event.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/parcel-events/:id",
+      "handler": "parcel-event.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/parcel-events/:id",
+      "handler": "parcel-event.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
