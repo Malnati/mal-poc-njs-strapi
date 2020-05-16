@@ -1,11 +1,10 @@
-COMPANY = strapi
-APP = gateway
+COMPANY = malnati
+APP = strapi
 PROJECT_NAME = $(COMPANY)-$(APP)
 APP_IMAGE_VERSION = 1
 APP_IMAGE_NAME = $(PROJECT_NAME):$(APP_IMAGE_VERSION)
-APP_CONTAINER_NAME = strapi-gateway
+APP_CONTAINER_NAME = $(APP)-container
 POSTGRES_CONTAINER_NAME = strapi-postgresql
-JHIPSTER_REGISTRY_CONTAINER_NAME = strapi-registry
 
 .DEFAULT: help
 .PHONY : help
@@ -15,8 +14,7 @@ help : Makefile
  
 ##
 ## /*
-##  * Commands and descriptions
-##  * ref: https://www.jhipster.tech/docker-compose/
+##  * GitHub: https://github.com/Malnati/mal-poc-njs-strapi
 ##  *
 ##  * Using Docker and Docker Compose is highly recommended in development, 
 ##  * and is also a good solution in production.
@@ -27,7 +25,7 @@ help : Makefile
 ##  * - Scale a container [docker-compose scale $(APP_CONTAINER_NAME)=4]
 ##  * - Stop containers [docker container stop <container_id>]
 ##  * - Delete a container [docker container rm <container_id>]
-##  * - Inspect network by image [docker inspect -f '{{ range $name, $element := .NetworkSettings.Networks }}{{ $name }} {{ end }}' strapi-gateway]
+##  * - Inspect network by image [docker inspect -f '{{ range $name, $element := .NetworkSettings.Networks }}{{ $name }} {{ end }}' $(APP)-container]
 ##  * ------------------------------------------------------------------------
 ##  */
 ##
@@ -67,143 +65,39 @@ git-stash:
 ##
 ## /*
 ##  *
-##  * The JHipster API Gateway
-##  * ref: https://www.jhipster.tech/api-gateway/
-##  * 
-##  * JHipster can generate API gateways. A gateway is a normal JHipster 
-##  * application, so you can use the usual JHipster options and development 
-##  * workflows on that project, but it also acts as the entrance to your 
-##  * microservices. More specifically, it provides HTTP routing and load 
-##  * balancing, quality of service, security and API documentation for all 
-##  * microservices.
-##  * ------------------------------------------------------------------------
-##  */
-##
-
-## make gateway-mvn-build        : mvn clean package -PIPE,dev,webpack,swagger -DskipTests=true
-
-gateway-mvn-build: 
-	mvn clean package -PIPE,dev,webpack,swagger -DskipTests=true
-
-## make gateway-mvn-sonar        : mvn initialize sonar:sonar 
-
-gateway-mvn-sonar: 
-	mvn initialize sonar:sonar 
-
-#	make gateway-jar-run:        : java -jar target/strapi-gateway-0.0.1-SNAPSHOT.jar
-
-gateway-jar-run: 
-	java -jar target/strapi-gateway-0.0.1-SNAPSHOT.jar
-
-## make gateway-mvn-clean:       : mvn clean 
-##                                 rm -f target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar
-
-gateway-mvn-clean: 
-		mvn clean 
-	    rm -f target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar
-
-## make docker-gateway-bash      : docker run -it $(APP_CONTAINER_NAME) /bin/bash
-
-docker-gateway-bash: 
-	docker run -it $(APP_CONTAINER_NAME) /bin/bash
-	
-## make docker-gateway-up        : docker-compose -f src/main/docker/gateway.yml up -d
-
-docker-gateway-up: 
-	docker-compose -f src/main/docker/gateway.yml up -d
-
-## make docker-gateway-down      : docker-compose -f src/main/docker/gateway.yml down
-
-docker-gateway-down: 
-	docker-compose -f src/main/docker/gateway.yml down
-
-## make docker-gateway-start     : docker-compose -f src/main/docker/gateway.yml start
-
-docker-gateway-start: 
-	docker-compose -f src/main/docker/gateway.yml start
-
-
-## make docker-gateway-stop      : docker-compose -f src/main/docker/gateway.yml stop
-
-docker-gateway-stop: 
-	docker-compose -f src/main/docker/gateway.yml stop
-
-## make docker-gateway-build     : docker build -t $(APP_IMAGE_NAME) --no-cache --force-rm --build-arg JAR_FILE=target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar -f src/main/docker/Dockerfile ./
-
-docker-gateway-build: 
-	docker build -t $(APP_IMAGE_NAME) --no-cache --force-rm --build-arg JAR_FILE=target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar -f src/main/docker/Dockerfile ./
-	
-## make docker-app-up            : docker-compose -f src/main/docker/app.yml up -d
-
-docker-app-up: 
-	docker-compose -f src/main/docker/app.yml up -d
-
-## make docker-app-down          : docker-compose -f src/main/docker/app.yml down
-
-docker-app-down: 
-	docker-compose -f src/main/docker/app.yml down
-
-##
-## /*
-##  *
 ##  * Using Sonar
+##  * ref: https://docs.sonarqube.org/latest/setup/get-started-2-minutes/
 ##  *
 ##  * @see http://0.0.0.0:9000
 ##  * ------------------------------------------------------------------------
 ##  */
 ##
-	
-## make docker-gateway-recreate  : mvn clean
-##                                 rm -f target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar
-##                                 mvn clean package -PIPE,dev,webpack,swagger -DskipTests=true
-##                                 docker-compose -f src/main/docker/gateway.yml down
-##                                 docker rmi $(APP_IMAGE_NAME)
-##                                 docker build -t $(APP_IMAGE_NAME) --no-cache --force-rm --build-arg JAR_FILE=target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar -f src/main/docker/Dockerfile ./
-##                                 docker-compose -f src/main/docker/gateway.yml up -d
-##                                 docker logs strapi-gateway-img:1 -f --tail=200
 
-docker-gateway-recreate: 
-	mvn clean
-	rm -f target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar
-	mvn clean package -PIPE,dev,webpack,swagger -DskipTests=true
-	docker-compose -f src/main/docker/gateway.yml down
-	docker rmi $(APP_IMAGE_NAME)
-	docker build -t $(APP_IMAGE_NAME) --no-cache --force-rm --build-arg JAR_FILE=target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar -f src/main/docker/Dockerfile ./
-	docker-compose -f src/main/docker/gateway.yml up -d
-	docker logs $(APP_CONTAINER_NAME) -f --tail=200
-
-## make docker-gateway-logs      : docker logs $(APP_IMAGE_NAME)_1 -f --tail=200
-##                                 MacOS: docker ps -aqf "name=docker_strapi-gateway_1"
-##                                 Linux: sudo docker ps -aqf "docker_strapi-gateway_1"
-##                                 docker inspect --format="{{.Id}}" docker_strapi-ne-gateway_1 for getting the Contatiner_ID
-docker-gateway-logs: 
-	docker logs $(APP_CONTAINER_NAME) -f --tail=200
-
-## make docker-sonar-up          : docker-compose -f src/main/docker/sonar.yml up -d
+## make docker-sonar-up          : docker-compose -f docker/sonar.yml up -d
 
 docker-sonar-up: 
-	docker-compose -f src/main/docker/sonar.yml up -d
+	docker-compose -f docker/sonar.yml up -d
 
-## make docker-sonar-down        : docker-compose -f src/main/docker/sonar.yml down
+## make docker-sonar-down        : docker-compose -f docker/sonar.yml down
 
 docker-sonar-down: 
-	docker-compose -f src/main/docker/sonar.yml down
+	docker-compose -f docker/sonar.yml down
 
-## make docker-sonar-stop        : docker-compose -f src/main/docker/sonar.yml stop
+## make docker-sonar-stop        : docker-compose -f docker/sonar.yml stop
 
 docker-sonar-stop: 
-	docker-compose -f src/main/docker/sonar.yml stop
+	docker-compose -f docker/sonar.yml stop
 
-## make docker-sonar-start       : docker-compose -f src/main/docker/sonar.yml start
+## make docker-sonar-start       : docker-compose -f docker/sonar.yml start
 
 docker-sonar-start: 
-	docker-compose -f src/main/docker/sonar.yml start
+	docker-compose -f docker/sonar.yml start
 
 ##
 ## /*
 ##  *
 ##  * Using PostgreSQL in development
-##  * ref: https://www.jhipster.tech/development/
+##  * ref: https://docs.docker.com/engine/examples/postgresql_service/
 ##  * 
 ##  * This option is bit more complex than using H2, but you have a some important 
 ##  * benefits:
@@ -217,25 +111,25 @@ docker-sonar-start:
 ##  */
 ##
 
-## make docker-postgres-up       : docker-compose -f src/main/docker/postgresql.yml up -d
+## make docker-postgres-up       : docker-compose -f docker/postgresql.yml up -d
 
 docker-postgres-up: 
-	docker-compose -f src/main/docker/postgresql.yml up -d
+	docker-compose -f docker/postgresql.yml up -d
 
-## make docker-postgres-down     : docker-compose -f src/main/docker/postgresql.yml down
+## make docker-postgres-down     : docker-compose -f docker/postgresql.yml down
 
 docker-postgres-down: 
-	docker-compose -f src/main/docker/postgresql.yml down
+	docker-compose -f docker/postgresql.yml down
 
-## make docker-postgres-start    : docker-compose -f src/main/docker/postgresql.yml start
+## make docker-postgres-start    : docker-compose -f docker/postgresql.yml start
 
 docker-postgres-start: 
-	docker-compose -f src/main/docker/postgresql.yml start
+	docker-compose -f docker/postgresql.yml start
 
-## make docker-postgres-stop     : docker-compose -f src/main/docker/postgresql.yml stop
+## make docker-postgres-stop     : docker-compose -f docker/postgresql.yml stop
 
 docker-postgres-stop: 
-	docker-compose -f src/main/docker/postgresql.yml stop
+	docker-compose -f docker/postgresql.yml stop
 
 ## make docker-postgres-exec     : docker exec -it $(POSTGRES_CONTAINER_NAME) /bin/bash
 
@@ -247,70 +141,18 @@ docker-postgres-exec:
 docker-postgres-logs: 
 	docker logs $(POSTGRES_CONTAINER_NAME) -f --tail=200
 
-## make docker-postgres-recreate : docker-compose -f src/main/docker/postgresql.yml down
+## make docker-postgres-recreate : docker-compose -f docker/postgresql.yml down
 ##                                 rm -rf ~/volumes/$(COMPANY)/postgresql/ && mkdir -p ~/volumes/$(COMPANY)/postgresql/
 ##                                 docker rmi postgres
-##                                 docker-compose -f src/main/docker/postgresql.yml up -d
+##                                 docker-compose -f docker/postgresql.yml up -d
 ##                                 docker logs $(POSTGRES_CONTAINER_NAME) -f --tail=200
 
 docker-postgres-recreate: 
-	docker-compose -f src/main/docker/postgresql.yml down
+	docker-compose -f docker/postgresql.yml down
 	rm -rf ~/volumes/$(COMPANY)/postgresql/ && mkdir -p ~/volumes/$(COMPANY)/postgresql/
 	docker rmi postgres
-	docker-compose -f src/main/docker/postgresql.yml up -d
+	docker-compose -f docker/postgresql.yml up -d
 	docker logs $(POSTGRES_CONTAINER_NAME) -f --tail=200
-
-##
-## /*
-##  *
-##  * The JHipster Registry has three main purposes:
-##  * 
-##  * It is a an Eureka server, that serves as a discovery server for applications. 
-##  * This is how JHipster handles routing, load balancing and scalability for all 
-##  * applications. It is a Spring Cloud Config server, that provide runtime 
-##  * configuration to all applications. It is an administration server, with 
-##  * dashboards to monitor and manage applications. All those features are packaged 
-##  * into one convenient application with a modern Angular-based user interface.
-##  * @see http://0.0.0.0:8761
-##  * ------------------------------------------------------------------------
-##  */
-##
-
-## make docker-registry-up       : docker-compose -f src/main/docker/jhipster-registry.yml up -d 
-
-docker-registry-up: 
-	docker-compose -f src/main/docker/jhipster-registry.yml up -d 
-
-## make docker-registry-down     : docker-compose -f src/main/docker/jhipster-registry.yml down
-
-docker-registry-down: 
-	docker-compose -f src/main/docker/jhipster-registry.yml down
-
-## make docker-registry-stop     : docker-compose -f src/main/docker/jhipster-registry.yml stop
-
-docker-registry-stop: 
-	docker-compose -f src/main/docker/jhipster-registry.yml stop
-
-## make docker-registry-start    : docker-compose -f src/main/docker/jhipster-registry.yml start
-
-docker-registry-start: 
-	docker-compose -f src/main/docker/jhipster-registry.yml start
-
-## make docker-registry-recreate : docker-compose -f src/main/docker/jhipster-registry.yml down
-##                                 docker rmi strapi-jhipster-registry
-##                                 docker-compose -f src/main/docker/jhipster-registry.yml up -d 
-##                                 docker logs $(JHIPSTER_REGISTRY_CONTAINER_NAME) -f --tail=200
-
-docker-registry-recreate: 
-	docker-compose -f src/main/docker/jhipster-registry.yml down
-	docker rmi postgres
-	docker-compose -f src/main/docker/jhipster-registry.yml up -d 
-	docker logs $(JHIPSTER_REGISTRY_CONTAINER_NAME) -f --tail=200
-
-## make docker-registry-logs     : docker logs $(JHIPSTER_REGISTRY_CONTAINER_NAME) -f --tail=200
-
-docker-registry-logs: 
-	docker logs $(JHIPSTER_REGISTRY_CONTAINER_NAME) -f --tail=200
 
 ##
 ## End Makefile 
