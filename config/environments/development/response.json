@@ -1,12 +1,12 @@
 {
-    "gzip": {
-        "enabled": false
-    },
-    "responseTime": {
-        "enabled": false
-    },
-    "poweredBy": {
-        "enabled": true,
-        "value": "Ricardo Malnati"
-    }
+  "gzip": {
+    "enabled": false
+  },
+  "responseTime": {
+    "enabled": false
+  },
+  "poweredBy": {
+    "enabled": true,
+    "value": "Strapi <strapi.io>"
+  }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "05/10/2020 1:09:44 PM"
+    "x-generation-date": "05/15/2020 1:09:59 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -45,7 +45,7 @@
     }
   ],
   "paths": {
-    "/bikers": {
+    "/bikes": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -57,7 +57,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Biker"
+                    "$ref": "#/components/schemas/Bike"
                   }
                 }
               }
@@ -96,7 +96,7 @@
         },
         "summary": "",
         "tags": [
-          "Biker"
+          "Bike"
         ],
         "parameters": [
           {
@@ -246,7 +246,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Biker"
+                  "$ref": "#/components/schemas/Bike"
                 }
               }
             }
@@ -284,7 +284,7 @@
         },
         "summary": "",
         "tags": [
-          "Biker"
+          "Bike"
         ],
         "requestBody": {
           "description": "",
@@ -292,14 +292,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBiker"
+                "$ref": "#/components/schemas/NewBike"
               }
             }
           }
         }
       }
     },
-    "/bikers/count": {
+    "/bikes/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -351,12 +351,12 @@
         },
         "summary": "",
         "tags": [
-          "Biker"
+          "Bike"
         ],
         "parameters": []
       }
     },
-    "/bikers/{id}": {
+    "/bikes/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -366,7 +366,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Biker"
+                  "$ref": "#/components/schemas/Bike"
                 }
               }
             }
@@ -404,7 +404,7 @@
         },
         "summary": "",
         "tags": [
-          "Biker"
+          "Bike"
         ],
         "parameters": [
           {
@@ -428,7 +428,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Biker"
+                  "$ref": "#/components/schemas/Bike"
                 }
               }
             }
@@ -466,7 +466,7 @@
         },
         "summary": "",
         "tags": [
-          "Biker"
+          "Bike"
         ],
         "requestBody": {
           "description": "",
@@ -474,7 +474,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewBiker"
+                "$ref": "#/components/schemas/NewBike"
               }
             }
           }
@@ -540,7 +540,7 @@
         },
         "summary": "",
         "tags": [
-          "Biker"
+          "Bike"
         ],
         "parameters": [
           {
@@ -556,7 +556,7 @@
         ]
       }
     },
-    "/goals": {
+    "/deals": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -568,7 +568,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Goal"
+                    "$ref": "#/components/schemas/Deal"
                   }
                 }
               }
@@ -607,7 +607,7 @@
         },
         "summary": "",
         "tags": [
-          "Goal"
+          "Deal"
         ],
         "parameters": [
           {
@@ -757,7 +757,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Goal"
+                  "$ref": "#/components/schemas/Deal"
                 }
               }
             }
@@ -795,7 +795,7 @@
         },
         "summary": "",
         "tags": [
-          "Goal"
+          "Deal"
         ],
         "requestBody": {
           "description": "",
@@ -803,14 +803,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGoal"
+                "$ref": "#/components/schemas/NewDeal"
               }
             }
           }
         }
       }
     },
-    "/goals/count": {
+    "/deals/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -862,12 +862,12 @@
         },
         "summary": "",
         "tags": [
-          "Goal"
+          "Deal"
         ],
         "parameters": []
       }
     },
-    "/goals/{id}": {
+    "/deals/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -877,7 +877,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Goal"
+                  "$ref": "#/components/schemas/Deal"
                 }
               }
             }
@@ -915,7 +915,7 @@
         },
         "summary": "",
         "tags": [
-          "Goal"
+          "Deal"
         ],
         "parameters": [
           {
@@ -939,7 +939,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Goal"
+                  "$ref": "#/components/schemas/Deal"
                 }
               }
             }
@@ -977,7 +977,7 @@
         },
         "summary": "",
         "tags": [
-          "Goal"
+          "Deal"
         ],
         "requestBody": {
           "description": "",
@@ -985,7 +985,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewGoal"
+                "$ref": "#/components/schemas/NewDeal"
               }
             }
           }
@@ -1051,7 +1051,7 @@
         },
         "summary": "",
         "tags": [
-          "Goal"
+          "Deal"
         ],
         "parameters": [
           {
@@ -1067,518 +1067,7 @@
         ]
       }
     },
-    "/staffs": {
-      "get": {
-        "deprecated": false,
-        "description": "Find all the staffs's records",
-        "responses": {
-          "200": {
-            "description": "Retrieve staffs document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Staffs"
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Staffs"
-        ],
-        "parameters": [
-          {
-            "name": "_limit",
-            "in": "query",
-            "required": false,
-            "description": "Maximum number of results possible",
-            "schema": {
-              "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_sort",
-            "in": "query",
-            "required": false,
-            "description": "Sort according to a specific field.",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_start",
-            "in": "query",
-            "required": false,
-            "description": "Skip a specific number of entries (especially useful for pagination)",
-            "schema": {
-              "type": "integer"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "=",
-            "in": "query",
-            "required": false,
-            "description": "Get entries that matches exactly your input",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_ne",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are not equals to something",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lt",
-            "in": "query",
-            "required": false,
-            "description": "Get record that are lower than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_lte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are lower than or equal to a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gt",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_gte",
-            "in": "query",
-            "required": false,
-            "description": "Get records that are greater than  or equal a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_contains",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_containss",
-            "in": "query",
-            "required": false,
-            "description": "Get records that contains (case sensitive) a value",
-            "schema": {
-              "type": "string"
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_in",
-            "in": "query",
-            "required": false,
-            "description": "Get records that matches any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "deprecated": false
-          },
-          {
-            "name": "_nin",
-            "in": "query",
-            "required": false,
-            "description": "Get records that doesn't match any value in the array of values",
-            "schema": {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            "deprecated": false
-          }
-        ]
-      },
-      "post": {
-        "deprecated": false,
-        "description": "Create a new staffs record",
-        "responses": {
-          "200": {
-            "description": "Retrieve staffs document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Staffs"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Staffs"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewStaffs"
-              }
-            }
-          }
-        }
-      }
-    },
-    "/staffs/count": {
-      "get": {
-        "deprecated": false,
-        "description": "Retrieve the numver of staffs documents",
-        "responses": {
-          "200": {
-            "description": "Retrieve staffs document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "count": {
-                      "type": "integer"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Staffs"
-        ],
-        "parameters": []
-      }
-    },
-    "/staffs/{id}": {
-      "get": {
-        "deprecated": false,
-        "description": "Find one staffs record",
-        "responses": {
-          "200": {
-            "description": "Retrieve staffs document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Staffs"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Staffs"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "put": {
-        "deprecated": false,
-        "description": "Update a single staffs record",
-        "responses": {
-          "200": {
-            "description": "Retrieve staffs document(s)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Staffs"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Staffs"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewStaffs"
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
-      "delete": {
-        "deprecated": false,
-        "description": "Delete a single staffs record",
-        "responses": {
-          "200": {
-            "description": "deletes a single staffs based on the ID supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "integer",
-                  "format": "int64"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Staffs"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      }
-    },
-    "/tickets": {
+    "/parcels": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -1590,7 +1079,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Ticket"
+                    "$ref": "#/components/schemas/Parcel"
                   }
                 }
               }
@@ -1629,7 +1118,7 @@
         },
         "summary": "",
         "tags": [
-          "Ticket"
+          "Parcel"
         ],
         "parameters": [
           {
@@ -1779,7 +1268,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ticket"
+                  "$ref": "#/components/schemas/Parcel"
                 }
               }
             }
@@ -1817,7 +1306,7 @@
         },
         "summary": "",
         "tags": [
-          "Ticket"
+          "Parcel"
         ],
         "requestBody": {
           "description": "",
@@ -1825,14 +1314,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTicket"
+                "$ref": "#/components/schemas/NewParcel"
               }
             }
           }
         }
       }
     },
-    "/tickets/count": {
+    "/parcels/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -1884,12 +1373,12 @@
         },
         "summary": "",
         "tags": [
-          "Ticket"
+          "Parcel"
         ],
         "parameters": []
       }
     },
-    "/tickets/{id}": {
+    "/parcels/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -1899,7 +1388,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ticket"
+                  "$ref": "#/components/schemas/Parcel"
                 }
               }
             }
@@ -1937,7 +1426,7 @@
         },
         "summary": "",
         "tags": [
-          "Ticket"
+          "Parcel"
         ],
         "parameters": [
           {
@@ -1961,7 +1450,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Ticket"
+                  "$ref": "#/components/schemas/Parcel"
                 }
               }
             }
@@ -1999,7 +1488,7 @@
         },
         "summary": "",
         "tags": [
-          "Ticket"
+          "Parcel"
         ],
         "requestBody": {
           "description": "",
@@ -2007,7 +1496,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewTicket"
+                "$ref": "#/components/schemas/NewParcel"
               }
             }
           }
@@ -2073,7 +1562,7 @@
         },
         "summary": "",
         "tags": [
-          "Ticket"
+          "Parcel"
         ],
         "parameters": [
           {
@@ -4247,231 +3736,156 @@
   },
   "components": {
     "schemas": {
-      "Biker": {
+      "Bike": {
         "required": [
           "id",
-          "name",
-          "email"
+          "fullname",
+          "username"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
+          "fullname": {
+            "type": "string"
+          },
+          "username": {
             "type": "string"
           },
           "email": {
             "type": "string"
-          },
-          "goals": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "date"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "biker": {
-                  "type": "string"
-                },
-                "date": {
-                  "type": "string"
-                },
-                "parcels": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
           }
         }
       },
-      "NewBiker": {
+      "NewBike": {
         "required": [
-          "name",
-          "email"
+          "fullname",
+          "username"
         ],
         "properties": {
-          "name": {
+          "fullname": {
+            "type": "string"
+          },
+          "username": {
             "type": "string"
           },
           "email": {
             "type": "string"
-          },
-          "goals": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
-      "Goal": {
+      "Deal": {
         "required": [
           "id",
-          "name",
-          "date"
+          "deadline"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string"
+          "deadline": {
+            "type": "datetime"
           },
-          "biker": {
+          "bike": {
             "required": [
               "id",
-              "name",
-              "email"
+              "fullname",
+              "username"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "fullname": {
+                "type": "string"
+              },
+              "username": {
                 "type": "string"
               },
               "email": {
                 "type": "string"
-              },
-              "goals": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "date": {
-            "type": "string"
-          },
-          "parcels": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "trackingid"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "trackingid": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "goal": {
-                  "type": "string"
-                }
               }
             }
           }
         }
       },
-      "NewGoal": {
+      "NewDeal": {
         "required": [
-          "name",
-          "date"
+          "deadline"
         ],
         "properties": {
-          "name": {
-            "type": "string"
+          "deadline": {
+            "type": "datetime"
           },
-          "biker": {
-            "type": "string"
-          },
-          "date": {
-            "type": "string"
-          },
-          "parcels": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "Staffs": {
-        "required": [
-          "id"
-        ],
-        "properties": {
-          "id": {
+          "bike": {
             "type": "string"
           }
         }
       },
-      "NewStaffs": {
-        "properties": {}
-      },
-      "Ticket": {
+      "Parcel": {
         "required": [
           "id",
-          "trackingid"
+          "UPN"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "trackingid": {
-            "type": "string"
-          },
-          "description": {
-            "type": "string"
-          },
-          "goal": {
+          "deal": {
             "required": [
               "id",
-              "name",
-              "date"
+              "deadline"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "deadline": {
+                "type": "datetime"
+              },
+              "bike": {
+                "type": "string"
+              }
+            }
+          },
+          "UPN": {
+            "type": "string"
+          },
+          "bike": {
+            "required": [
+              "id",
+              "fullname",
+              "username"
+            ],
+            "properties": {
+              "id": {
                 "type": "string"
               },
-              "biker": {
+              "fullname": {
                 "type": "string"
               },
-              "date": {
+              "username": {
                 "type": "string"
               },
-              "parcels": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "email": {
+                "type": "string"
               }
             }
           }
         }
       },
-      "NewTicket": {
+      "NewParcel": {
         "required": [
-          "trackingid"
+          "UPN"
         ],
         "properties": {
-          "trackingid": {
+          "deal": {
             "type": "string"
           },
-          "description": {
+          "UPN": {
             "type": "string"
           },
-          "goal": {
+          "bike": {
             "type": "string"
           }
         }
@@ -4726,16 +4140,13 @@
   },
   "tags": [
     {
-      "name": "Biker"
+      "name": "Bike"
     },
     {
-      "name": "Goal"
+      "name": "Deal"
     },
     {
-      "name": "Staffs"
-    },
-    {
-      "name": "Ticket"
+      "name": "Parcel"
     },
     {
       "name": "Email - Email"

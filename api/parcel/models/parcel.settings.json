@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parcels",
+  "info": {
+    "name": "parcel"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "deal": {
+      "model": "deal"
+    },
+    "UPN": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "bike": {
+      "model": "bike"
+    }
+  }
+}
