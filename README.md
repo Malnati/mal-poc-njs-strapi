@@ -1,19 +1,3 @@
-# mal-poc-njs-strapi
+# Strapi application
 
-An Strapi CMS proof of concept.
-
-## Make
-
-**Use Make file for commands**
-
-- Help
-
-```shell
- $> Make
-```
-
-- Command
-
-```shell
- $> Make <command>
-```
+A quick description of your strapi application
