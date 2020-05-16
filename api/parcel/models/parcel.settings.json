@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "parcels",
+  "info": {
+    "name": "parcel"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "goal": {
+      "model": "goal"
+    },
+    "scrapingtime": {
+      "type": "integer"
+    },
+    "remessa": {
+      "type": "string"
+    },
+    "expedidor": {
+      "type": "string"
+    },
+    "recebedor": {
+      "type": "string"
+    },
+    "destinatario": {
+      "type": "string"
+    },
+    "situacao": {
+      "type": "enumeration",
+      "enum": [
+        "Entregue"
+      ]
+    },
+    "payload": {
+      "type": "json"
+    }
+  }
+}

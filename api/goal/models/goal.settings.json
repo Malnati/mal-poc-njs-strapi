@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "goals",
+  "info": {
+    "name": "Goal"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "biker": {
+      "model": "biker"
+    },
+    "deadline": {
+      "type": "datetime",
+      "required": true
+    }
+  }
+}
