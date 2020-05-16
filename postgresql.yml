@@ -1,14 +1,14 @@
 version: '2'
 services:
-  vobys-postgresql:
+  strapi-postgresql:
     image: postgres:latest
-    container_name: vobys-postgresql
+    container_name: strapi-postgresql
     restart: unless-stopped
     environment:
-      - POSTGRES_DB=vobys
-      - POSTGRES_USER=vobys
+      - POSTGRES_DB=strapi
+      - POSTGRES_USER=strapi
     volumes:
-      - ~/volumes/vobys/postgresql/:/var/lib/postgresql/data/
+      - ~/volumes/strapi/postgresql/:/var/lib/postgresql/data/
     command: postgres -c listen_addresses='*'
     ports:
       - 5432:5432

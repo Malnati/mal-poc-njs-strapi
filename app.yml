@@ -1,21 +1,21 @@
 version: '2'
 services:
-  vobys-postgresql:
+  strapi-postgresql:
     extends:
       file: postgresql.yml
-      service: vobys-postgresql
-  vobys-registry:
+      service: strapi-postgresql
+  strapi-registry:
     extends:
       file: jhipster-registry.yml
-      service: vobys-registry
+      service: strapi-registry
     environment:
       - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_TYPE=native
       - SPRING_CLOUD_CONFIG_SERVER_COMPOSITE_0_SEARCH_LOCATIONS=file:./central-config/docker-config/
-  vobys-gateway:
+  strapi-gateway:
     extends:
       file: gateway.yml
-      service: vobys-gateway
-  vobys-sonar:
+      service: strapi-gateway
+  strapi-sonar:
     extends:
       file: sonar.yml
-      service: vobys-sonar
+      service: strapi-sonar

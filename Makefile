@@ -1,11 +1,11 @@
-COMPANY = vobys
+COMPANY = strapi
 APP = gateway
 PROJECT_NAME = $(COMPANY)-$(APP)
 APP_IMAGE_VERSION = 1
 APP_IMAGE_NAME = $(PROJECT_NAME):$(APP_IMAGE_VERSION)
-APP_CONTAINER_NAME = vobys-gateway
-POSTGRES_CONTAINER_NAME = vobys-postgresql
-JHIPSTER_REGISTRY_CONTAINER_NAME = vobys-registry
+APP_CONTAINER_NAME = strapi-gateway
+POSTGRES_CONTAINER_NAME = strapi-postgresql
+JHIPSTER_REGISTRY_CONTAINER_NAME = strapi-registry
 
 .DEFAULT: help
 .PHONY : help
@@ -27,7 +27,7 @@ help : Makefile
 ##  * - Scale a container [docker-compose scale $(APP_CONTAINER_NAME)=4]
 ##  * - Stop containers [docker container stop <container_id>]
 ##  * - Delete a container [docker container rm <container_id>]
-##  * - Inspect network by image [docker inspect -f '{{ range $name, $element := .NetworkSettings.Networks }}{{ $name }} {{ end }}' vobys-gateway]
+##  * - Inspect network by image [docker inspect -f '{{ range $name, $element := .NetworkSettings.Networks }}{{ $name }} {{ end }}' strapi-gateway]
 ##  * ------------------------------------------------------------------------
 ##  */
 ##
@@ -90,10 +90,10 @@ gateway-mvn-build:
 gateway-mvn-sonar: 
 	mvn initialize sonar:sonar 
 
-#	make gateway-jar-run:        : java -jar target/vobys-gateway-0.0.1-SNAPSHOT.jar
+#	make gateway-jar-run:        : java -jar target/strapi-gateway-0.0.1-SNAPSHOT.jar
 
 gateway-jar-run: 
-	java -jar target/vobys-gateway-0.0.1-SNAPSHOT.jar
+	java -jar target/strapi-gateway-0.0.1-SNAPSHOT.jar
 
 ## make gateway-mvn-clean:       : mvn clean 
 ##                                 rm -f target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar
@@ -160,7 +160,7 @@ docker-app-down:
 ##                                 docker rmi $(APP_IMAGE_NAME)
 ##                                 docker build -t $(APP_IMAGE_NAME) --no-cache --force-rm --build-arg JAR_FILE=target/$(PROJECT_NAME)-0.0.1-SNAPSHOT.jar -f src/main/docker/Dockerfile ./
 ##                                 docker-compose -f src/main/docker/gateway.yml up -d
-##                                 docker logs vobys-gateway-img:1 -f --tail=200
+##                                 docker logs strapi-gateway-img:1 -f --tail=200
 
 docker-gateway-recreate: 
 	mvn clean
@@ -173,9 +173,9 @@ docker-gateway-recreate:
 	docker logs $(APP_CONTAINER_NAME) -f --tail=200
 
 ## make docker-gateway-logs      : docker logs $(APP_IMAGE_NAME)_1 -f --tail=200
-##                                 MacOS: docker ps -aqf "name=docker_vobys-gateway_1"
-##                                 Linux: sudo docker ps -aqf "docker_vobys-gateway_1"
-##                                 docker inspect --format="{{.Id}}" docker_vobys-ne-gateway_1 for getting the Contatiner_ID
+##                                 MacOS: docker ps -aqf "name=docker_strapi-gateway_1"
+##                                 Linux: sudo docker ps -aqf "docker_strapi-gateway_1"
+##                                 docker inspect --format="{{.Id}}" docker_strapi-ne-gateway_1 for getting the Contatiner_ID
 docker-gateway-logs: 
 	docker logs $(APP_CONTAINER_NAME) -f --tail=200
 
@@ -212,7 +212,7 @@ docker-sonar-start:
 ##  * - You can use the great ./mvnw liquibase:diff goal (see reference)
 ##  *   PS. If you are running H2 with disk-based persistence, this workflow is not 
 ##  *       yet working perfectly.
-##  * @see jdbc:postgres//localhost:5432/vobys
+##  * @see jdbc:postgres//localhost:5432/strapi
 ##  * ------------------------------------------------------------------------
 ##  */
 ##
@@ -297,7 +297,7 @@ docker-registry-start:
 	docker-compose -f src/main/docker/jhipster-registry.yml start
 
 ## make docker-registry-recreate : docker-compose -f src/main/docker/jhipster-registry.yml down
-##                                 docker rmi vobys-jhipster-registry
+##                                 docker rmi strapi-jhipster-registry
 ##                                 docker-compose -f src/main/docker/jhipster-registry.yml up -d 
 ##                                 docker logs $(JHIPSTER_REGISTRY_CONTAINER_NAME) -f --tail=200
 

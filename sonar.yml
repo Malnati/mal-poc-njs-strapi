@@ -1,8 +1,8 @@
 version: '2'
 services:
-  vobys-sonar:
+  strapi-sonar:
     image: sonarqube:7.7-community
-    container_name: vobys-sonar
+    container_name: strapi-sonar
     ports:
       - 9001:9000
       - 9092:9092
